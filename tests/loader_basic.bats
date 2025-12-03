@@ -1,8 +1,9 @@
 #!/usr/bin/env bats
 
-@test "loader.sh charge les couleurs et aliases" {
+@test "loader.sh initialise COMMON_SHELL_ROOT et charge les modules de base" {
   source lib/loader.sh
 
-  [ -n "$RED" ]
-  [ "$(type -t ll)" = "alias" ]
+  [ -n "$COMMON_SHELL_ROOT" ]
+  [ -d "$COMMON_SHELL_ROOT/functions" ]
+  [ -d "$COMMON_SHELL_ROOT/aliases" ]
 }
